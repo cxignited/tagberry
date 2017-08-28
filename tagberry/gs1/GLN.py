@@ -1,6 +1,6 @@
 import re
 
-from epcerrors.GS1Exception import GS1Exception
+from tagberry.epcerrors.GS1Exception import GS1Exception
 
 from tagberry.gs1 import GS1Number
 from tagberry.gs1 import gln_patterns

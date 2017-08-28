@@ -1,6 +1,6 @@
 import re
 
-from epcerrors.GS1Exception import GS1Exception
+from tagberry.epcerrors.GS1Exception import GS1Exception
 
 from tagberry.gs1 import GS1Number
 from tagberry.gs1 import gdti_patterns
@@ -9,7 +9,8 @@ from tagberry.gs1 import gdti_patterns
 class GDTI(GS1Number):
     
     '''Represents a GS1 GTIN'''
-    def __init__(self,companyPrefix):
+
+    def __init__(self, companyPrefix):
         super(self, GS1Number).__init__(self,companyPrefix)
         self._documentType = None
         self._gdti = ""

@@ -1,7 +1,7 @@
 import re
 
-from epc.EPCFactory import EPCFactory
-from epcerrors.GS1Exception import GS1Exception
+from tagberry.epc.EPCFactory import EPCFactory
+from tagberry.epcerrors.GS1Exception import GS1Exception
 
 from tagberry.gs1 import GS1Factory
 from tagberry.gs1 import sscc_patterns
@@ -16,7 +16,7 @@ class EncodingFactory:
 
     def create(self, data):
 
-        if(isGS1(data)):
+        if isGS1(data):
             return GS1Factory()
         else:
             return EPCFactory()
@@ -24,8 +24,8 @@ class EncodingFactory:
     def parse(self, data, companyPrefix=None):
         retVal = None
 
-        if(isGS1(data)):
-            if(companyPrefix == None):
+        if isGS1(data):
+            if companyPrefix is None:
                 raise GS1Exception("In order to create a GS1 Encoding a company prefix is required")
             retVal = GS1Factory().parse(data, companyPrefix)
         else:
@@ -37,7 +37,7 @@ class EncodingFactory:
         ret = False
         for pat in self.sscc_patterns:
             m = pat.match(gs1)
-            if(m!=None):
+            if m is not None:
                 ret = True
                 break
         return ret

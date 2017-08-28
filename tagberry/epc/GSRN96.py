@@ -1,9 +1,9 @@
 import re
 
 import bitstring
-from epc.EPCNumber import EPCNumber
-from epcerrors.EncodingException import EncodingException
-from utils.Partitions import Partitions
+from tagberry.epc.EPCNumber import EPCNumber
+from tagberry.epcerrors.EncodingException import EncodingException
+from tagberry.utils.Partitions import Partitions
 
 from tagberry.gs1 import GS1Number
 from tagberry.utils.Conversion import Conversion

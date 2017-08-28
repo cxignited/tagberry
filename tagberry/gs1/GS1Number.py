@@ -3,15 +3,14 @@ from math import ceil
 from tagberry.utils.abstract_wrapper import abstract
 
 
-class GS1Number(object):  
-  
+class GS1Number(object):
     def __init__(self, company_prefix=None):
-        self._check_digit = None 
+        self._check_digit = None
         self._applicationIdentifiersList = []
-        self._IdentificationKey=None
-        self._serial_number=0
-        self._encoding_type=None
-        self._company_prefix=company_prefix
+        self._IdentificationKey = None
+        self._serial_number = 0
+        self._encoding_type = None
+        self._company_prefix = company_prefix
         self._gs1 = None
     
     class MetaClass:

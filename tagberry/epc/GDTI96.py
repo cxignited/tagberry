@@ -1,10 +1,10 @@
 import re
 
 import bitstring
-from epc.EPCNumber import EPCNumber
-from epcerrors.EncodingException import EncodingException
-from schema.Field import Field
-from utils.Partitions import Partitions
+from tagberry.epc.EPCNumber import EPCNumber
+from tagberry.epcerrors.EncodingException import EncodingException
+from tagberry.schema.Field import Field
+from tagberry.utils.Partitions import Partitions
 
 from tagberry.gs1 import GDTI
 from tagberry.utils.Conversion import Conversion

@@ -6,7 +6,6 @@ SGTIN198_PAT = r"^(P<gtin-14>([0-9]{14})?(?P<serialNumber>([!%-?A-Z_a-z\x22]{1,2
 sgtin198_patterns = [SGTIN198_PAT,]
 
 
-
 def compile_patterns(*args):
     '''
     Compiles the epc regex patterns returns an array

@@ -1,10 +1,10 @@
 import re
 import unittest
 
-from epc.SGTIN96 import SGTIN96
+from tagberry.epc.SGTIN96 import SGTIN96
 
 from tagberry.epc.EPCFactory import EPCFactory
-from tagberry.utils import Partitions
+from tagberry.utils.Partitions import Partitions
 
 
 class SGTIN96Test(unittest.TestCase):
@@ -74,8 +74,6 @@ class SGTIN96Test(unittest.TestCase):
         self.assertEqual(int(sgtin96.getFieldValue("SerialNumber")), int(self._serial_number))
         
     def test_from_hex(self):
-        
-        
         sgtin96 = self._sgtin96.encode(companyPrefix=self._company_prefix, 
                                        indicatorDigit=self._indicatorDigit,
                                        itemReference=self._itemRef,

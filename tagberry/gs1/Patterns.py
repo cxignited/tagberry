@@ -32,6 +32,7 @@ gtin_patterns = [gtin14_AI01_AI21_UNIVERSAL,
                  gtin14_AI01_AI21_FIXEDLEN,
                  gtin14_AI01_AI21_VARIABLELEN_PARAMS]
 
+
 def get_compiled_gtin_patterns():
     '''
     Compiles the patterns defined in gtin_patterns and returns an array
@@ -50,7 +51,8 @@ sscc18_universal = r'^(\(00\)|00)?(?P<sscc18>[0-9]{18})$'
 sscc18_A100P = r"^\(00\)(?P<sscc18>[0-9]{18})$"
 sscc18_A100 = r"^00(?P<sscc18>[0-9]{18})$"
 sscc18 = r"^(?P<sscc18>[0-9]{18})$"
-sscc_patterns = [sscc18,sscc18_A100P,sscc18_A100,sscc18_universal_params, sscc18_universal]
+sscc_patterns = [sscc18, sscc18_A100P, sscc18_A100, sscc18_universal_params, sscc18_universal]
+
 
 def get_compiled_sscc_patterns():
     '''
@@ -63,13 +65,14 @@ def get_compiled_sscc_patterns():
         ret.append(regex)
     return ret
 
+
 """GLN Patterns"""
 gln_p = r"^\(414\)([0-9]{13})\(254\)([0-9]{1,20})$"
 gln_np = r"^414([0-9]{13})254([0-9]{1,20})$"
 gln_noext = r"^\(414\)([0-9]{13})$"
 gln_noext_np = r"^414([0-9]{13})$"
 gln = "^([0-9]{13})$"
-gln_patterns = [gln,gln_np,gln_noext,gln_noext_np,gln_p]
+gln_patterns = [gln, gln_np, gln_noext, gln_noext_np, gln_p]
 
 """GDTI Patterns"""
 gdti_p = r"^\(253\)([0-9]{13})([0-9]{1,17})$"
@@ -78,11 +81,10 @@ gdti_np_nsn = "^253([0-9]{13})$"
 gdti_np_sn = "^253([0-9]{13})([0-9]{1,17})$"
 gdti_nai_sn = "^([0-9]{13})([0-9]{1,17})$"
 gdti_nai_nsn = "^([0-9]{13})$"
-gdti_patterns = [gdti_p,gdti_p_nsn,gdti_np_sn,gdti_nai_sn,gdti_nai_nsn]
+gdti_patterns = [gdti_p, gdti_p_nsn, gdti_np_sn, gdti_nai_sn, gdti_nai_nsn]
 
 """GRAI Patterns"""
 grai_p = r"^\(8003\)0([0-9]{13,30})$"
 grai_np = r"^(8003)0([0-9]{13,30})$"
 grai = "^0([0-9]{13})([1,16])$"
-grai_patterns = [grai_p,grai_np,grai]
-
+grai_patterns = [grai_p, grai_np, grai]

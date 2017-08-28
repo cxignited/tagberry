@@ -7,3 +7,4 @@ class EPCPatternTest(unittest.TestCase):
         unittest.TestCase.setUp(self)
     
     def test_sgtin_198(self):
+        pass
