@@ -114,9 +114,9 @@ class SGTIN96(EPCNumber):
         Gets method for a Serial Number.
                         
         Example:
-            >>> sgtin = EPCFactory.create("SGTIN96")
-            >>> sgtin.serialnumber = 123456
-            >>> print(sgtin.serialnumber)
+             sgtin = EPCFactory.create("SGTIN96")
+             sgtin.serialnumber = 123456
+             print(sgtin.serialnumber)
         
         Returns:
             int: The current serial number for the encoding
@@ -139,9 +139,9 @@ class SGTIN96(EPCNumber):
         
         Example:
             Both calls have the same result and are provided for preference.
-            >>> sgtin96 = EPCFactory.create("SGTIN96")
-            >>> sgtin96.serialnumber = 123456
-            >>> print(sgtin96.serialnumber)
+             sgtin96 = EPCFactory.create("SGTIN96")
+             sgtin96.serialnumber = 123456
+             print(sgtin96.serialnumber)
         
         Raises:
             InvalidSerialNumber : will be raised if the serial number is invalid.
@@ -262,13 +262,13 @@ class SGTIN96(EPCNumber):
          (str) - An EPC Tag URI
         
         Example:
-            >>> sgtin96 = sgtin96.encode(companyPrefix="035846802", 
+             sgtin96 = sgtin96.encode(companyPrefix="035846802",
                                        indicatorDigit=0,
                                        itemReference=339,
                                        filter=3, 
                                        serialNumber=123) 
-            >>> tag_uri = sgtin96.toTagURI()
-            >>> assert tag_uri == 'urn:epc:tag:sgtin-96:3.035846802.0339.123'
+             tag_uri = sgtin96.toTagURI()
+             assert tag_uri == 'urn:epc:tag:sgtin-96:3.035846802.0339.123'
         '''
 
         if len(self.getFieldValue("CompanyPrefix")) + len(self.getFieldValue("ItemReference")) != 13:

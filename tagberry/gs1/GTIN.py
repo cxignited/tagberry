@@ -12,7 +12,7 @@ class GTIN(GS1Number):
     '''
 
     def __init__(self, companyPrefix="0000000"):
-        super().__init__(self, companyPrefix)
+        super().__init__(companyPrefix)
         self._itemReference = None
         self._indicatorDigit = "0"
         self._gtin14 = ""

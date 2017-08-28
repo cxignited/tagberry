@@ -227,7 +227,7 @@ class EPCNumber(object):
             return self.toXml()
         elif format == "json":
             return self.toJSON()
-        elif format == "dict):
+        elif format == "dict":
             return self.toDictionary()
         elif format == "dictionary":
             return self.toDictionary()
