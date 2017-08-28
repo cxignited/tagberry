@@ -1,7 +1,0 @@
-bitstring
-
-[dev]
-check-manifest
-
-[test]
-coverage
