@@ -15,7 +15,7 @@ setup(
     # the version across setup.py and the project code, see
     # https://packaging.python.org/en/latest/single_source_version.html
     name="tagberry",
-    version="2.0",
+    version="2.1",
     description='EPC Global/GS1 Encoding Library for Python',
     long_description="Tagberry is a comprehensive Python library for working with EPC Global and GS1 Encodings, such as GTINs, SGTIN-*, SSCC, and all other encodings.",
     url='https://github.com/csailer/tagberry',
