@@ -195,7 +195,7 @@ class GIAI96(EPCNumber):
         
         
         gs1Number = GS1Number()
-        cd = gs1Number.calculate_check_digit(giai) 
+        cd = gs1Number.calculateCheckDigit(giai)
         
         if(includeAppIdentifier==False):
             gs1 = "%s%s" % (giai,cd)

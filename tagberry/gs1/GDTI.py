@@ -21,8 +21,8 @@ class GDTI(GS1Number):
             self._documentType = documentType
             self._serial_number = serialNumber
             
-            gs1 = "%s%s" % (self._company_prefix,self._documentType)
-            self._check_digit = self.calculate_check_digit(gs1)
+            gs1 = "%s%s" % (self._companyPrefix, self._documentType)
+            self._check_digit = self.calculateCheckDigit(gs1)
             self._gdti = "%s%s" % (gs1,self._check_digit)
             self._serial_number = serialNumber
             if(int(serialNumber)>0):
@@ -47,7 +47,7 @@ class GDTI(GS1Number):
         if(len(self._applicationIdentifiersList)):
             hasAIs = True    
         #finish parsing gdti
-        cpl = len(self._company_prefix)
+        cpl = len(self._companyPrefix)
         dtl = 12-cpl
         self._documentType = self._gdti[cpl:cpl+dtl]
         self._check_digit = self._gdti[cpl+dtl:cpl+dtl+1]

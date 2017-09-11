@@ -111,7 +111,7 @@ class GSRN96(EPCNumber):
         
         gdti = self.getFieldValue("CompanyPrefix")+self.getFieldValue("ServiceReference")
         gs1Number = GS1Number()
-        cd = gs1Number.calculate_check_digit(gdti) 
+        cd = gs1Number.calculateCheckDigit(gdti)
         
         if(includeAppIdentifier==False):
             gs1 = "%s%s" % (gdti,cd)

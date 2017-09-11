@@ -23,8 +23,8 @@ class GLN(GS1Number):
             self._extension = extension
             self._applicationIdentifiersList.append("(414)")
             
-            gs1 = "%s%s" % (self._company_prefix,self._locationReference)
-            checkDigit = self.calculate_check_digit(gs1)
+            gs1 = "%s%s" % (self._companyPrefix, self._locationReference)
+            checkDigit = self.calculateCheckDigit(gs1)
             if(int(extension)>0):
                 gs1 = "(414)%s%s(254)%s" % (gs1,checkDigit,self.getExtensionNumber())
             else:
@@ -49,14 +49,14 @@ class GLN(GS1Number):
         #remove the last digit an
         if(len(localGLN)<13):
             #Calculate Check Digit
-            localGLN+=str(self.calculate_check_digit(localGLN))
+            localGLN+=str(self.calculateCheckDigit(localGLN))
         elif(len(localGLN)==13):
             temp = localGLN[0:len(localGLN)-1]
-            self._check_digit = self.calculate_check_digit(temp)
+            self._check_digit = self.calculateCheckDigit(temp)
             localGLN = "%s%s" % (temp,self._check_digit)
         self._encodingSize = len(localGLN)
         
-        self._locationReference = localGLN[len(self._company_prefix):len(localGLN)-1]
+        self._locationReference = localGLN[len(self._companyPrefix):len(localGLN) - 1]
             
     def getLocationReference(self):
         return self._locationReference
@@ -135,7 +135,7 @@ class GLN(GS1Number):
                 retVal = "414%s254%s" % (self._gln,self._extension)
         else:
             #No AIs Found at parse or encode but...
-            if(self._serial_number!=None):
+            if(self._serialNumber!=None):
                 #if there is a serial number add it to the GTIN with the proper AI
                 if(useParenthesesAroundAIs):
                     #Use Parens

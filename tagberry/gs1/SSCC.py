@@ -22,8 +22,8 @@ class SSCC(GS1Number):
         self._serialReference = serialReference
         self._serial_number = serialReference
         self._extensionDigit = extensionDigit
-        gs1 = "%s%s%s" % (self._extensionDigit, self._company_prefix, self._serialReference)
-        self._check_digit = self.calculate_check_digit(gs1)
+        gs1 = "%s%s%s" % (self._extensionDigit, self._companyPrefix, self._serialReference)
+        self._check_digit = self.calculateCheckDigit(gs1)
         gs1 = "(00)%s%s" % (gs1, self._check_digit)
 
         self._gs1 = gs1
@@ -53,11 +53,11 @@ class SSCC(GS1Number):
         # remove the last digit an
         if (len(localSSCC) != 18):
             # Calculate Check Digit
-            localSSCC += str(self.calculate_check_digit(localSSCC))
+            localSSCC += str(self.calculateCheckDigit(localSSCC))
         self._encodingSize = len(localSSCC)
         self._extensionDigit = localSSCC[:1]
         # step over the Extension Digit to parse on the CP and backoff one to ignore the check digit
-        serialRef = localSSCC[len(self._company_prefix) + 1:len(localSSCC) - 1]
+        serialRef = localSSCC[len(self._companyPrefix) + 1:len(localSSCC) - 1]
         self.setSerialReference(serialRef)
 
     def getSerialReference(self):
@@ -134,7 +134,7 @@ class SSCC(GS1Number):
 
     def getEncodingIdentifier(self):
         '''Returns the Company Prefix. This method is here to preserve polymorphic behavior'''
-        return self._company_prefix
+        return self._companyPrefix
 
     def to_base_number(self):
         '''Returns the Core Number e.g. GTIN-14, SSCC-18 without the App Identifiers'''

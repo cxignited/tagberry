@@ -112,12 +112,12 @@ class GS1NumberTest(unittest.TestCase):
         '''
         data = "1234567890123"
         gs1 = GS1Number()
-        check_digit = gs1.calculate_check_digit(data)
+        check_digit = gs1.calculateCheckDigit(data)
         self.assertEqual(check_digit, 1,
                          "The Check digit should have been 1. Instead the check digit was %s" % check_digit)
 
         data = "4900012309874"
-        check_digit = gs1.calculate_check_digit(data)
+        check_digit = gs1.calculateCheckDigit(data)
         self.assertEqual(check_digit, 7,
                          "The Check digit should have been 7. Instead the check digit was %s" % check_digit)
 

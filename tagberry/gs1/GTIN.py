@@ -32,9 +32,9 @@ class GTIN(GS1Number):
             self._applicationIdentifiersList.append("(21)")
 
         gs1 = "%s%s%s" % (self._indicatorDigit, self._companyPrefix, self._itemReference)
-        checkDigit = self._calculateCheckDigit(gs1)
+        checkDigit = self.calculateCheckDigit(gs1)
         if int(serialNumber) > 0:
-            gs1 = "(01)%s%s(21)%s" % (gs1, checkDigit, self.getSerialNumber())
+            gs1 = "(01)%s%s(21)%s" % (gs1, checkDigit, self._serialNumber)
         else:
             gs1 = "(01)%s%s" % (gs1, checkDigit)
 
@@ -50,17 +50,17 @@ class GTIN(GS1Number):
 
     def parse(self, gtin):
         '''The parse() method allows you to parse a valid GS1 GTIN-14 and then have access to its individual fields'''
-        if (self.isValid(gtin)):
+        if self.isValid(gtin):
             # store the original gtin
             self._gs1 = gtin
         else:
             raise GS1Exception("The supplied GTIN, '%s' is invalid." % gtin)
 
         self._parseAIs()
-        if (len(self._applicationIdentifiersList)):
+        if len(self._applicationIdentifiersList):
             self.hasAIs = True
 
-        if (self.hasAIs):
+        if self.hasAIs:
             localGtin = self._gtin14
         else:
             localGtin = gtin
@@ -69,7 +69,7 @@ class GTIN(GS1Number):
         # finish parsing gtin
         self._indicatorDigit = localGtin[:1]
         # remove the last digit an
-        if (len(localGtin) != 14):
+        if len(localGtin) != 14:
             # Calculate Check Digit
             localGtin += str(self._calculateCheckDigit(localGtin))
         self._encodingSize = len(localGtin)

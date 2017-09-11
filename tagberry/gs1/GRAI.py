@@ -21,8 +21,8 @@ class GRAI(GS1Number):
             self._serial_number = serialNumber
                 
             
-            gs1 = "0%s%s" % (self._company_prefix,self._assetType)
-            checkDigit = self.calculate_check_digit(gs1)
+            gs1 = "0%s%s" % (self._companyPrefix, self._assetType)
+            checkDigit = self.calculateCheckDigit(gs1)
             
             gs1 = "(8003)%s%s%s" % (gs1,checkDigit,self._serial_number)
                 
@@ -58,12 +58,12 @@ class GRAI(GS1Number):
         
         
         self._encodingSize = len(localGRAI)
-        atl = 13 - len(self._company_prefix)
-        self._assetType = localGRAI[len(self._company_prefix):len(self._company_prefix)+atl]
-        self._serial_number = localGRAI[len(self._company_prefix)+len(self._assetType)+1:]
-        temp = "%s%s" % (self._company_prefix,self._assetType)
-        self._check_digit=str(self.calculate_check_digit(temp))
-        self._grai = "0%s%s%s%s" % (self._company_prefix,self._assetType,self._check_digit,self._serial_number)
+        atl = 13 - len(self._companyPrefix)
+        self._assetType = localGRAI[len(self._companyPrefix):len(self._companyPrefix) + atl]
+        self._serial_number = localGRAI[len(self._companyPrefix) + len(self._assetType) + 1:]
+        temp = "%s%s" % (self._companyPrefix, self._assetType)
+        self._check_digit=str(self.calculateCheckDigit(temp))
+        self._grai = "0%s%s%s%s" % (self._companyPrefix, self._assetType, self._check_digit, self._serial_number)
         
             
     def getAssetType(self):

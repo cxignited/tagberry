@@ -148,7 +148,7 @@ class GDTI113(EPCNumber):
         
         gdti = self.getFieldValue("CompanyPrefix")+self.getFieldValue("DocumentType")
         gs1Number = GS1Number()
-        cd = gs1Number.calculate_check_digit(gdti) 
+        cd = gs1Number.calculateCheckDigit(gdti)
         
         if(includeAppIdentifier==False):
             gs1 = "%s%s%s" % (gdti,cd,str(self.getFieldValue("Serial")).zfill(serialNumberLength))
